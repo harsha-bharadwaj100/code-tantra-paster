@@ -1,11 +1,14 @@
 from time import sleep
 import tkinter as tk
 import pyautogui as pg
+
+
 def paste_code():
-    code = text_input.get("1.0", tk.END)
+    code = text_input.get("1.0", tk.END).replace("\t", "").replace("}", "")
     print(code)
     sleep(2)
-    pg.typewrite(code)
+    pg.typewrite(code, interval=0.1)
+
 
 root = tk.Tk()
 root.title("Code Paster")
